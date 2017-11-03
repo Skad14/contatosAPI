@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AddressCore" representedClassName="AddressCore" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="suite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipcode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactsCore" inverseName="contadress" inverseEntity="ContactsCore" syncable="YES"/>
+        <relationship name="geo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeoCore" inverseName="adress" inverseEntity="GeoCore" syncable="YES"/>
+    </entity>
+    <entity name="CompanyCore" representedClassName="CompanyCore" syncable="YES" codeGenerationType="class">
+        <attribute name="bs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="catchPhrase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactsCore" inverseName="company" inverseEntity="ContactsCore" syncable="YES"/>
+    </entity>
+    <entity name="ContactsCore" representedClassName="ContactsCore" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CompanyCore" inverseName="contacts" inverseEntity="CompanyCore" syncable="YES"/>
+        <relationship name="contadress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AddressCore" inverseName="contacts" inverseEntity="AddressCore" syncable="YES"/>
+    </entity>
+    <entity name="GeoCore" representedClassName="GeoCore" syncable="YES" codeGenerationType="class">
+        <attribute name="lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lng" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="adress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AddressCore" inverseName="geo" inverseEntity="AddressCore" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AddressCore" positionX="-11502" positionY="-4374" width="128" height="133"/>
+        <element name="CompanyCore" positionX="-11153" positionY="-4183" width="128" height="103"/>
+        <element name="ContactsCore" positionX="-11315" positionY="-4392" width="128" height="165"/>
+        <element name="GeoCore" positionX="-11495" positionY="-4165" width="128" height="90"/>
+    </elements>
+</model>
